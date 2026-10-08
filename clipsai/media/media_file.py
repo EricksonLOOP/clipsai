@@ -230,19 +230,25 @@ class MediaFile(File):
         """
         self.assert_exists()
 
-        result = subprocess.run(
-            [
-                "ffprobe",
-                "-v",
-                "quiet",
-                "-print_format",
-                "json",
-                "-show_streams",
-                self._path,
-            ],
-            capture_output=True,
-            text=True,
-        )
+        try:
+            result = subprocess.run(
+                [
+                    "ffprobe",
+                    "-v",
+                    "quiet",
+                    "-print_format",
+                    "json",
+                    "-show_streams",
+                    self._path,
+                ],
+                capture_output=True,
+                text=True,
+            )
+        except FileNotFoundError:
+            raise FileNotFoundError(
+                "ffprobe not found. Please install ffmpeg and ensure it is available "
+                "in your system PATH. Download it from https://ffmpeg.org/download.html"
+            )
         streams_info = json.loads(result.stdout)["streams"]
 
         # logging message
