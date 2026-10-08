@@ -1,0 +1,37 @@
+# Core dependencies with pinned versions for reproducibility.
+# Generated for clipsai – last verified: 2024-01 (Python 3.10/3.11, CUDA 11.8/12.1)
+#
+# HuggingFace token required for pyannote diarization models.
+# Set it as an environment variable: export HF_AUTH_TOKEN="hf_..."
+#
+# Install whisperx separately (not on PyPI):
+#   pip install "whisperx @ git+https://github.com/m-bain/whisperx.git@v3.1.1"
+
+# ── ML / Audio ──────────────────────────────────────────────────────────────
+torch==2.2.2
+torchaudio==2.2.2
+pyannote.audio==3.3.2
+pyannote.core==5.0.0
+sentence-transformers==2.7.0
+
+# ── Vision ───────────────────────────────────────────────────────────────────
+facenet-pytorch==2.6.0
+mediapipe==0.10.11
+opencv-python==4.9.0.80
+
+# ── Video / Media ────────────────────────────────────────────────────────────
+av==12.0.0
+scenedetect==0.6.3
+
+# ── Data / Science ───────────────────────────────────────────────────────────
+numpy==1.26.4
+scipy==1.13.0
+scikit-learn==1.4.2
+pandas==2.2.2
+matplotlib==3.8.4
+nltk==3.8.1
+
+# ── System / Utils ───────────────────────────────────────────────────────────
+psutil==5.9.8
+pynvml==11.5.0
+python-magic==0.4.27

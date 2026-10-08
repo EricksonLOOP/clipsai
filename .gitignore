@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
+# Claude Code
+.claude/
 
 # C extensions
 *.so
@@ -200,6 +202,9 @@ Dockerfile
 data/
 clipsai/data
 test_files/
+
+# Sandbox notebooks (exploratory, contain hardcoded local paths)
+sandbox/
 
 # Ignore macOS system files
 .DS_Store

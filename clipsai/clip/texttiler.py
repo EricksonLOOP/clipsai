@@ -478,7 +478,7 @@ def smooth(x, window_len=3, window="flat"):
     if window == "flat":  # moving average
         w = numpy.ones(window_len, "d")
     else:
-        w = eval("numpy." + window + "(window_len)")
+        w = getattr(numpy, window)(window_len)
 
     y = numpy.convolve(w / w.sum(), s, mode="same")
 

@@ -56,7 +56,7 @@ class PyannoteDiarizer:
 
         self.pipeline = Pipeline.from_pretrained(
             "pyannote/speaker-diarization-3.1",
-            use_auth_token=auth_token,
+            token=auth_token,
         ).to(torch.device(device))
         logging.debug("Pyannote using device: {}".format(self.pipeline.device))
 

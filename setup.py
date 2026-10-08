@@ -28,7 +28,6 @@ setup(
         "pyannote.audio",
         "pyannote.core",
         "pynvml",
-        "pytest",
         "python-magic",
         "scenedetect",
         "scikit-learn",
