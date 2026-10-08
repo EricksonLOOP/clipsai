@@ -939,11 +939,17 @@ class MediaEditor:
                 "0",
                 "-i",
                 media_paths_file.path,
-                # add to remove blank screen at beginning of output
+                # reset video and audio timestamps to avoid AAC buffer overflow
+                # ("Too many packets buffered for output stream") when the audio
+                # encoder accumulates frames faster than the muxer drains them
                 "-vf",
                 "setpts=PTS-STARTPTS",
+                "-af",
+                "asetpts=PTS-STARTPTS",
                 concatenated_media_file_path,
-            ]
+            ],
+            capture_output=True,
+            text=True,
         )
         logging.debug("Concatenation complete")
         media_paths_file.delete()
